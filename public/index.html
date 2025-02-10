@@ -7,19 +7,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/output.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import the component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 </head>
 
 <body>
+
     <!-- navbar -->
     <nav class="bg-black border-b border-gray-800 shadow-lg">
-        <div class="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-2">
             <!-- Left Navigation Links -->
             <div class="flex items-center space-x-6">
-                <a href="#" class="text-white text-lg font-medium hover:text-blue-400 transition">About</a>
-                <a href="#" class="text-white text-lg font-medium hover:text-blue-400 transition">Services</a>
-                <a href="#" class="text-white text-lg font-medium hover:text-blue-400 transition">Pricing</a>
-                <a href="#" class="text-white text-lg font-medium hover:text-blue-400 transition">Contact</a>
+
+                <a href="#" class="text-white text-sm font-medium hover:text-blue-400 transition">About</a>
+                <a href="#" class="text-white text-sm font-medium hover:text-blue-400 transition">Services</a>
+                <a href="#" class="text-white text-sm font-medium hover:text-blue-400 transition">Pricing</a>
+                <a href="#" class="text-white text-sm font-medium hover:text-blue-400 transition">Contact</a>
+                <!-- side bar -->
             </div>
+
 
             <!-- Centered Logo -->
             <div class="flex items-center">
@@ -31,7 +38,7 @@
                 <!-- Search Bar -->
                 <div class="relative w-64">
                     <input type="search"
-                        class="w-full p-3 pl-10 text-sm text-white bg-gray-900 border border-gray-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
+                        class="w-full p-2 pl-10 text-sm text-white bg-gray-900 border border-transparent rounded-lg focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                         placeholder="Search..." required />
                     <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 20 20">
@@ -42,15 +49,17 @@
 
                 <!-- Login Button -->
                 <button
-                    class="bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105">Login</button>
+                    class="bg-gradient-to-r text-lg from-green-400 to-green-600 text-white font-semibold px-4 py-1 rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:scale-105">Login</button>
             </div>
         </div>
     </nav>
 
 
 
+
     <!-- jumbororto -->
     <section class="relative w-full h-screen flex items-center justify-center bg-black">
+        <canvas id="bg-animation" class="absolute top-0 left-0 w-full h-full"></canvas>
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-75"></div>
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 opacity-0 animate-[slideIn_1s_ease-in_forwards_0.5s]">
@@ -67,6 +76,73 @@
         </div>
     </section>
 
+    <!-- Section: 3D Military Weapons Showcase -->
+    <section id="weapons" class="relative w-full py-16 bg-black text-white">
+        <div class="max-w-7xl mx-auto text-center px-6">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-blue-400 animate-fadeIn">
+                Our Modern Military Arsenal
+            </h2>
+            <p class="text-lg text-gray-300 mb-8 animate-fadeIn">
+                Explore our cutting-edge military weapons with high-detail 3D visualizations.
+            </p>
+        </div>
+
+        <!-- 3D Models Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 px-3 max-w-8xl mx-auto">
+            <div class="group relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <model-viewer src="/public/img/pistol.glb" alt="pistol" auto-rotate camera-controls
+                    class="w-full h-72 rounded-lg"></model-viewer>
+                <h3 class="text-2xl font-bold mt-4">Pistol</h3>
+                <p class="text-gray-400 mt-2">A legendary assault rifle used worldwide.</p>
+                <a href="./ak47-details.html"
+                    class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    View Details
+                </a>
+            </div>
+
+            <div class="group relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <model-viewer src="/public/img/qbu.glb" alt="Sniper Rifle" auto-rotate camera-controls
+                    class="w-full h-72 rounded-lg"></model-viewer>
+                <h3 class="text-2xl font-bold mt-4">Sniper Rifle</h3>
+                <p class="text-gray-400 mt-2">Precision shooting for long-range combat.</p>
+                <a href="./sniper-details.html"
+                    class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    View Details
+                </a>
+            </div>
+
+            <div class="group relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <model-viewer src="/public/img/M4A1.glb" alt="M4A1" auto-rotate camera-controls
+                    class="w-full h-72 rounded-lg"></model-viewer>
+                <h3 class="text-2xl font-bold mt-4">M4A1</h3>
+                <p class="text-gray-400 mt-2">A highly versatile and powerful rifle.</p>
+                <a href="./m4a1-details.html"
+                    class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    View Details
+                </a>
+            </div>
+
+            <div class="group relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                <model-viewer src="/public/img/uzi.glb" alt="M4A1" auto-rotate camera-controls
+                    class="w-full h-72 rounded-lg"></model-viewer>
+                <h3 class="text-2xl font-bold mt-4">M4A1</h3>
+                <p class="text-gray-400 mt-2">A highly versatile and powerful rifle.</p>
+                <a href="./m4a1-details.html"
+                    class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                    View Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
+
+
+
+
+    <!-- card -->
     <section id="products" class="py-16 px-6 bg-black text-white">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="group relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
@@ -147,8 +223,79 @@
 
 
     <!-- java -->
+
+    <script>
+        const canvas = document.getElementById("bg-animation");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = Math.random() * 3 + 1;
+                this.color = "rgba(0, 183, 255, 0.7)";
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+            }
+
+            move() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle) => {
+                particle.move();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        createParticles();
+        animate();
+
+        canvas.addEventListener("mousemove", (event) => {
+            particles.forEach((particle) => {
+                const dx = event.clientX - particle.x;
+                const dy = event.clientY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 100) {
+                    particle.speedX = dx * 0.05;
+                    particle.speedY = dy * 0.05;
+                }
+            });
+        });
+    </script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 
+
+
+
+
+    <!-- jumboroto awal -->
     <style>
         @keyframes fadeIn {
             from {
@@ -170,6 +317,39 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+    </style>
+    <!-- jumboroto kek 2 -->
+
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-slideIn {
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards 0.5s;
         }
     </style>
 
